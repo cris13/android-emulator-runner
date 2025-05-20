@@ -38,15 +38,15 @@ export async function launchEmulator(
     }
 
     if (cores) {
-      await exec.exec(`sh -c \\"printf 'hw.cpu.ncore=${cores}\n' >> ${process.env.ANDROID_AVD_HOME}/"${avdName}".avd"/config.ini`);
+      await exec.exec(`sh -c \\"printf 'hw.cpu.ncore=${cores}\n' >> ${avdPath}/config.ini"`);
     }
 
     if (ramSize) {
-      await exec.exec(`sh -c \\"printf 'hw.ramSize=${ramSize}\n' >> ${process.env.ANDROID_AVD_HOME}/"${avdName}".avd"/config.ini`);
+      await exec.exec(`sh -c \\"printf 'hw.ramSize=${ramSize}\n' >> ${avdPath}/config.ini"`);
     }
 
     if (heapSize) {
-      await exec.exec(`sh -c \\"printf 'hw.heapSize=${heapSize}\n' >> ${process.env.ANDROID_AVD_HOME}/"${avdName}".avd"/config.ini`);
+      await exec.exec(`sh -c \\"printf 'hw.heapSize=${heapSize}\n' >> ${avdPath}/config.ini"`);
     }
 
     if (enableHardwareKeyboard) {
