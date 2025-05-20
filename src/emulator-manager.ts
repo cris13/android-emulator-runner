@@ -50,11 +50,11 @@ export async function launchEmulator(
     }
 
     if (enableHardwareKeyboard) {
-      await exec.exec(`sh -c \\"printf 'hw.keyboard=yes\n' >> ${process.env.ANDROID_AVD_HOME}/"${avdName}".avd"/config.ini`);
+      await exec.exec(`sh -c \\"printf 'hw.keyboard=yes\n' >> ${avdPath}/config.ini"`);
     }
 
     if (diskSize) {
-      await exec.exec(`sh -c \\"printf 'disk.dataPartition.size=${diskSize}\n' >> ${process.env.ANDROID_AVD_HOME}/"${avdName}".avd"/config.ini`);
+      await exec.exec(`sh -c \\"printf 'disk.dataPartition.size=${diskSize}\n' >> ${avdPath}/config.ini"`);
     }
 
     // turn off hardware acceleration on Linux
